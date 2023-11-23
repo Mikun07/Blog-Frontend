@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LOGO from "../../../public/logo.svg";
+import LOGO from "../../assets/header.svg";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -22,7 +22,7 @@ function Sidebar() {
   ];
   return (
     <>
-      <div className=" lg:w-96 w-24 overflow-hidden h-screen flex flex-col justify-between bg-blue-800 lg:py-10 py-6">
+      <div className="lg:w-72 w-24 overflow-hidden h-screen flex flex-col justify-between bg-blue-800 lg:py-10 py-6">
         <div className="flex items-center justify-center gap-2">
           <img src={LOGO} alt="" />
           <p className="lg:flex text-2xl hidden font-bold text-white">

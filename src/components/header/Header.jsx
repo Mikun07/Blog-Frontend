@@ -7,7 +7,7 @@ function Header() {
   });
   return (
     <>
-      <header className="bg-white py-3 px-1 rounded-2xl flex items-center justify-end ">
+      <header className="bg-white  py-3 px-1 rounded-2xl flex items-center justify-end ">
         <div className="flex gap-4 items-center">
           <span className=" font-semibold text-xs lg:text-base">
             {new Date().toDateString()}

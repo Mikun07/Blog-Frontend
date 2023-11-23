@@ -6,10 +6,14 @@ import Header from "../../components/header/header";
 function ProfileLayout() {
   return (
     <>
-      <div className="w-full flex items-start overflow-hidden">
-        <Sidebar />
+      <div className="w-full flex items-start ">
+        <div className="h-full">
+          <Sidebar />
+        </div>
         <div className="w-full p-1 h-screen">
-          <Header />
+          <div className=" ">
+            <Header />
+          </div>
           <Outlet />
         </div>
       </div>

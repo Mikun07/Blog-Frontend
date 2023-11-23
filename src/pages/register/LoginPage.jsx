@@ -1,5 +1,5 @@
 import React from "react";
-import LOGO from "../../../public/logo.svg";
+import LOGO from "../../assets/header.svg";
 import LeftView from "./leftview";
 import LoginForm from "./LoginForm";
 import { Link } from "react-router-dom";
