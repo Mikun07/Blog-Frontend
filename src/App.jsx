@@ -13,10 +13,8 @@ import ProfilePage from "./pages/account/ProfilePage";
 import ProfileLayout from "./pages/account/ProfileLayout";
 import ManageBlog from "./pages/account/ManageBlog";
 import ProfileRoutes from "./routes/ProfileRoutes";
-
+import { authToken } from "./store/auth";
 const ProtectedRoutes = () => {
-  const authToken = JSON.parse(localStorage.getItem("authToken") || null);
-
   return authToken ? <Outlet /> : <Navigate to="/login" />;
 };
 

@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "../../components/avatar/Avatar";
 import InfoInput from "../../components/input/InfoInput";
 import EditModal from "../../components/modal/EditModal";
+import axios from "axios";
+import { authToken } from "../../store/auth";
 
 function ProfilePage() {
-  const [profile] = useState({
-    FirstName: "Ayomikun",
-    LastName: "Festus-Olaleye",
-    Name: "Festus-Olaleye Ayomikun",
-    Email: "ayomikunolaleye@gmail.com",
-    UserName: "Mikun07",
-    Avatar:
-      "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/656.jpg",
-  });
+  const [user, setUser] = useState({ name: "NA", username: "NA", email: "NA" });
 
   const [modal, setModal] = useState(false);
 
@@ -20,13 +14,37 @@ function ProfilePage() {
     setModal(!modal);
   };
 
+  async function fetchUser() {
+    try {
+      let result = await axios.get("http://127.0.0.1:8000/api/getUser", {
+        headers: {
+          Authorization: authToken,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (result.data?.success) {
+        const user = result.data?.data;
+        setUser({
+          name: user?.name,
+          email: user?.email,
+          username: user?.username,
+        });
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col justify-between lg:px-8 p-4 ">
         <div className="flex w-full items-center justify-between">
-          <div className="">
-            <Avatar />
-          </div>
+          <div className=""><Avatar name={user?.name} email={user?.email}/></div>
 
           <div>
             <EditModal />
@@ -35,13 +53,10 @@ function ProfilePage() {
 
         <div className="flex justify-center">
           <div className="mt-12 grid lg:grid-cols-2 grid-cols-1 lg:gap-14 gap-2">
-            <InfoInput UserName="username" Info={profile.UserName} />
+            <InfoInput UserName="username" Info={user.username} />
 
-            <InfoInput UserName="Firstname" Info={profile.FirstName} />
-
-            <InfoInput UserName="Lastname" Info={profile.LastName} />
-
-            <InfoInput UserName="email" Info={profile.Email} />
+            <InfoInput UserName="email" Info={user.email} />
+            <InfoInput UserName="name" Info={user.name} />
           </div>
         </div>
 

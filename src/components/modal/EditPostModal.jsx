@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditPostForm from "../form/EditPostForm";
 
-function EditPostModal() {
+function EditPostModal({blog}) {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -22,7 +22,7 @@ function EditPostModal() {
           <div className="bg-white fixed top-0 right-0 w-80 z-20 h-screen p-5  rounded-tl-lg rounded-bl-lg">
             <div className="flex items-center w-full justify-between mb-16">
               <h1 className="capitalize font-bold text-blue-800">
-                Create Post
+                Edit Blog
               </h1>
               <button
                 onClick={toggleModal}
@@ -33,7 +33,7 @@ function EditPostModal() {
             </div>
 
             <div>
-              <EditPostForm />
+              <EditPostForm blog={blog} />
             </div>
           </div>
         </div>
