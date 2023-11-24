@@ -1,44 +1,18 @@
 import React, { useState } from "react";
-import LOGO from "../../assets/blog.svg";
-import EditPostModal from "../modal/EditPostModal";
-import axios from "axios";
-import { authToken } from "../../store/auth";
+import LOGO from "../../assets/logo.svg";
 
-function BlogCard(props) {
+function DisplayCard(props) {
   const { blog } = props;
-  async function deleteBlog() {
-    try {
-      let result = await axios.post(
-        "http://127.0.0.1:8000/api/deleteBlog",
-        {
-          id: blog?.id,
-        },
-        {
-          headers: {
-            Authorization: authToken,
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
-      if (result.data?.success) {
-        alert("Successfully edited blog");
-      } else {
-        alert("Unable to edit blog");
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  }
 
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
   };
+
   return (
     <>
-      <div className="lg:w-[300px] w-full flex flex-col rounded-lg shadow-lg">
+      <div className="lg:w-[300px] w-full h-full flex flex-col rounded-lg shadow-md">
         <div className="bg-blue-800 w-[300px] h-[200px] flex items-center justify-center rounded-tr-lg rounded-tl-lg">
           <img src={LOGO} alt="" className="w-[300px] h-[200px]" />
         </div>
@@ -78,7 +52,7 @@ function BlogCard(props) {
 
                   <div className="flex flex-col gap-6">
                     <h2 className="font-semibold capitalize">{blog?.title}</h2>
-                    <div className="flex lg:flex-row flex-col w-full justify-between">
+                    <div className="flex w-full justify-between">
                       <p className="font-bold text-blue-800">{blog?.author}</p>
                       <h3 className="font-semibold capitalize">
                         {new Date(blog?.date).toDateString()}
@@ -91,15 +65,6 @@ function BlogCard(props) {
                 </div>
               </div>
             )}
-            <div className=" flex gap-4">
-              <EditPostModal blog={blog} />
-              <button
-                onClick={deleteBlog}
-                className="rounded-lg px-2 py-3 flex justify-center items-center bg-red-600 text-white"
-              >
-                <ion-icon name="trash"></ion-icon>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -107,4 +72,4 @@ function BlogCard(props) {
   );
 }
 
-export default BlogCard;
+export default DisplayCard;

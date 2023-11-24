@@ -46,9 +46,9 @@ function ProfilePage() {
         <div className="flex w-full items-center justify-between">
           <div className=""><Avatar name={user?.name} email={user?.email}/></div>
 
-          <div>
+          {/* <div>
             <EditModal />
-          </div>
+          </div> */}
         </div>
 
         <div className="flex justify-center">
@@ -58,39 +58,6 @@ function ProfilePage() {
             <InfoInput UserName="email" Info={user.email} />
             <InfoInput UserName="name" Info={user.name} />
           </div>
-        </div>
-
-        <div className=" flex justify-center mt-10">
-          <button
-            onClick={toggleModal}
-            className="flex items-center text-white justify-center lg:p-6 p-2 lg:text-5xl text-3xl gap-3 bg-red-600 lg:rounded-lg rounded-full"
-          >
-            <ion-icon name="trash-outline"></ion-icon>
-            <p className="capitalize lg:flex hidden">Delete Account</p>
-          </button>
-
-          {/* {modal && (
-            <div>
-              <div className=" bg-black/75 top-0 left-0 right-0 bottom-0 z-10 fixed w-full h-full"></div>
-              <div className="bg-white p-5 absolute top-[40%] left-[50%] z-20 rounded-lg">
-                <div className="flex flex-col gap-4 items-center justify-center w-full">
-                  <h1 className="capitalize font-bold ">Confirm</h1>
-
-                  <div className="flex gap-6">
-                    <button className="flex items-center text-white justify-center p-6 gap-3 bg-red-600 rounded-lg">
-                      <p className="capitalize">Delete</p>
-                    </button>
-                    <button
-                      onClick={toggleModal}
-                      className="flex items-center text-blue-800 justify-center p-6 gap-3 bg-transparent border-blue-800 border-2 rounded-lg"
-                    >
-                      <p className="capitalize">Cancel</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
     </>

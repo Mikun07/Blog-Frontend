@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import CreatePostForm from "../form/CreatePostForm";
 
 function CreateModal() {
@@ -11,10 +11,10 @@ function CreateModal() {
     <>
       <button
         onClick={toggleModal}
-        className="flex items-center text-white justify-center lg:p-6 p-2 lg:text-5xl text-3xl gap-3 bg-blue-800 lg:rounded-lg rounded-full"
+        className="flex items-center text-white justify-center p-2 lg:text-3xl text-xl gap-3 bg-blue-800 lg:rounded-lg rounded-full"
       >
         <ion-icon name="create"></ion-icon>
-        <p className="capitalize lg:flex hidden">Create Post</p>
+        <p className="capitalize flex">Create Post</p>
       </button>
 
       {modal && (

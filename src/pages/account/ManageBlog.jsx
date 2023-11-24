@@ -26,6 +26,7 @@ function ManageBlog() {
   useEffect(() => {
     fetchUser();
   }, []);
+  
   return (
     <>
       <div className="flex flex-col justify-between mx-1">
@@ -36,9 +37,6 @@ function ManageBlog() {
 
           <div className=" flex w-full gap-3 items-center justify-start">
             <CreateModal />
-            <h3 className="font-semibold capitalize lg:hidden flex">
-              create post
-            </h3>
           </div>
 
           <div className="flex justify-center w-full h-[90%] overflow-y-auto my-6">
