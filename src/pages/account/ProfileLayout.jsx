@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../../components/navbar/Sidebar";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Header from "../../components/header/header";
 
 function ProfileLayout() {
