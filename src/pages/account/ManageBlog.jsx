@@ -18,7 +18,8 @@ function ManageBlog() {
 
       if (result.data?.success) {
         const blogList = result.data?.data;
-        setUserBlogs(blogList);
+        const reversedBlogs = blogList?.reverse()
+        setUserBlogs(reversedBlogs);
       }
     } catch (error) {
       alert(error.message);

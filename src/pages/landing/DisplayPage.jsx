@@ -16,7 +16,8 @@ function DisplayPage() {
 
       if (result.data?.success) {
         const blogList = result.data?.data;
-        setGetBlogs(blogList);
+        const reversedBlogs = blogList?.reverse()
+        setGetBlogs(reversedBlogs);
       }
     } catch (error) {
       alert(error.message);
