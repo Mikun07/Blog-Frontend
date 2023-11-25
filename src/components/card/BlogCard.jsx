@@ -3,6 +3,7 @@ import LOGO from "../../assets/blog.svg";
 import EditPostModal from "../modal/EditPostModal";
 import axios from "axios";
 import { authToken } from "../../store/auth";
+import { BASE_URL } from "../../config/api";
 
 function BlogCard(props) {
   const { blog } = props;
