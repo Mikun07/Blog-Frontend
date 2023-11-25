@@ -5,7 +5,7 @@ import ProfilePage from "../pages/account/ProfilePage";
 const ProfileRoutes = () => {
   return (
     <Routes>
-      <Route index element={<Navigate to="profile/account" />} />
+      <Route index element={<Navigate to="account" />} />
       <Route path="account" element={<ProfilePage />} />
       <Route path="managepost" element={<ManageBlog />} />
     </Routes>
