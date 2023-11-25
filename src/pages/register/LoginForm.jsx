@@ -23,7 +23,7 @@ function LoginForm() {
       
       if(result?.data?.success) {
         localStorage.setItem("authToken", JSON.stringify(result?.data?.token))
-        navigate('/profile/account')
+        window.location.assign('/profile/account')
       } else{
         alert(result?.data?.message)
       }

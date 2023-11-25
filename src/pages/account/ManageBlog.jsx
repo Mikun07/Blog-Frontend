@@ -45,9 +45,6 @@ function ManageBlog() {
 
       if (result.data?.success) {
         alert("Successfully created blog");
-        // navigate("/profile/managepost");
-        // setModal(false);
-        // fetchBlogs()
       } else {
         alert("Unable to create blog");
       }
@@ -63,7 +60,7 @@ function ManageBlog() {
 
   return (
     <>
-      <div className="flex flex-col justify-between mx-1">
+      <div className="flex flex-col h-full justify-between mx-1">
         <div className="flex flex-col w-full h-[90%] items-center justify-between">
           <div className=" flex justify-center w-full mb-5">
             <h1 className="font-bold capitalize text-blue-800">Manage Post</h1>

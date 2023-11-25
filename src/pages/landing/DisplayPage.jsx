@@ -28,7 +28,7 @@ function DisplayPage() {
 
   return (
     <>
-      <div className="w-full  pt-[210px] pb-14">
+      <div className="w-full pt-[210px] pb-14">
         <div className="flex h-full items-center justify-center">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-6">
             {getBlogs?.map((blog, index) => {

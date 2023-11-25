@@ -6,40 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function CreatePostForm({addBlog, title, setTitle, content, setContent, date, setDate}) {
   const navigate = useNavigate()
-  // const [title, setTitle] = useState(null);
-  // const [content, setContent] = useState(null);
-  // const [date, setDate] = useState(null);
-
-  // async function addBlog() {
-  //   try {
-  //     let result = await axios.post(
-  //       `${BASE_URL}/api/addBlog`,
-  //       {
-  //         title,
-  //         content,
-  //         date,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: authToken,
-  //           "Content-Type": "application/json",
-  //           Accept: "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     if (result.data?.success) {
-  //       // const blogList = result.data?.data;
-  //       // setUserBlogs(blogList);
-  //       alert("Successfully created blog")
-  //       navigate('/profile/managepost')
-  //     } else {
-  //       alert('Unable to create blog')
-  //     }
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // }
+  
   return (
     <>
       <form
