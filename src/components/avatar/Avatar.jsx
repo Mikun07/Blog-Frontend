@@ -9,7 +9,7 @@ function Avatar({ name, email }) {
         </div>
 
         <div className="flex flex-col lg:gap-2 gap-0">
-          <p className="font-bold lg:text-4xl text-xs text-blue-800">
+          <p className="font-bold capitalize lg:text-4xl text-xs text-blue-800">
             {name}
           </p>
           <p className="font-medium lg:text-base text-xs text-gray-400">
