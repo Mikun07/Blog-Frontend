@@ -1,6 +1,6 @@
 import React from "react";
 import LOGO from "../../assets/header.svg";
-import LeftView from "./leftview";
+import LeftView from "./LeftView";
 import LoginForm from "./LoginForm";
 import { Link } from "react-router-dom";
 
