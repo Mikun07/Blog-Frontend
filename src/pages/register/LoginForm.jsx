@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../config/api";
 
 function LoginForm() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ function LoginForm() {
   async function login() {
     try {
       let result = await axios.post(
-        "http://127.0.0.1:8000/api/login",
+        `${BASE_URL}/api/login`,
         { email, password },
         {
           headers: {
@@ -19,11 +20,12 @@ function LoginForm() {
           },
         }
       );
-      if(result.status == '200' && result.data?.user) {
+      
+      if(result?.data?.success) {
         localStorage.setItem("authToken", JSON.stringify(result?.data?.token))
         navigate('/profile/account')
       } else{
-        alert(result?.data?.error)
+        alert(result?.data?.message)
       }
     } catch (error) {
       console.error("There was a problem: ", error.message);

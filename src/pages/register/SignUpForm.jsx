@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
+import { BASE_URL } from "../../config/api";
 
 function SignUpForm() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function SignUpForm() {
 
     try {
       let result = await axios.post(
-        "http://127.0.0.1:8000/api/register",
+        `${BASE_URL}/api/register`,
         item,
         {
           headers: {

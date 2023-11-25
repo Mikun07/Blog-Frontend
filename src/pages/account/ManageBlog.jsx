@@ -3,11 +3,12 @@ import CreateModal from "../../components/modal/CreateModal";
 import BlogCard from "../../components/card/BlogCard";
 import { authToken } from "../../store/auth";
 import axios from "axios";
+import { BASE_URL } from "../../config/api";
 function ManageBlog() {
   const [userBlogs, setUserBlogs] = useState([]);
-  async function fetchUser() {
+  async function fetchBlogs() {
     try {
-      let result = await axios.get("http://127.0.0.1:8000/api/listBlogs", {
+      let result = await axios.get(`${BASE_URL}/api/listBlogs`, {
         headers: {
           Authorization: authToken,
           "Content-Type": "application/json",
@@ -23,10 +24,43 @@ function ManageBlog() {
       alert(error.message);
     }
   }
-  useEffect(() => {
-    fetchUser();
-  }, []);
+
+  async function addBlog({ title, content, date }) {
+    try {
+      let result = await axios.post(
+        `${BASE_URL}/api/addBlog`,
+        {
+          title,
+          content,
+          date,
+        },
+        {
+          headers: {
+            Authorization: authToken,
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+
+      if (result.data?.success) {
+        alert("Successfully created blog");
+        // navigate("/profile/managepost");
+        // setModal(false);
+        // fetchBlogs()
+      } else {
+        alert("Unable to create blog");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
+
   return (
     <>
       <div className="flex flex-col justify-between mx-1">
@@ -36,7 +70,7 @@ function ManageBlog() {
           </div>
 
           <div className=" flex w-full gap-3 items-center justify-start">
-            <CreateModal />
+            <CreateModal addBlog={addBlog} />
           </div>
 
           <div className="flex justify-center w-full h-[90%] overflow-y-auto my-6">

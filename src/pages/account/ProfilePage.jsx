@@ -4,6 +4,7 @@ import InfoInput from "../../components/input/InfoInput";
 import EditModal from "../../components/modal/EditModal";
 import axios from "axios";
 import { authToken } from "../../store/auth";
+import { BASE_URL } from "../../config/api";
 
 function ProfilePage() {
   const [user, setUser] = useState({ name: "NA", username: "NA", email: "NA" });
@@ -16,7 +17,7 @@ function ProfilePage() {
 
   async function fetchUser() {
     try {
-      let result = await axios.get("http://127.0.0.1:8000/api/getUser", {
+      let result = await axios.get(`${BASE_URL}/api/getUser`, {
         headers: {
           Authorization: authToken,
           "Content-Type": "application/json",

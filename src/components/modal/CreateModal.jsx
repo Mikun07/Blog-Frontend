@@ -1,12 +1,19 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import CreatePostForm from "../form/CreatePostForm";
 
-function CreateModal() {
+function CreateModal({ addBlog }) {
   const [modal, setModal] = useState(false);
+  const [title, setTitle] = useState(null);
+  const [content, setContent] = useState(null);
+  const [date, setDate] = useState(null);
 
   const toggleModal = () => {
     setModal(!modal);
   };
+  async function handleNewBlog() {
+    await addBlog({ title, content, date });
+    toggleModal();
+  }
   return (
     <>
       <button
@@ -34,7 +41,15 @@ function CreateModal() {
             </div>
 
             <div>
-              <CreatePostForm />
+              <CreatePostForm
+                addBlog={handleNewBlog}
+                title={title}
+                content={content}
+                date={date}
+                setContent={setContent}
+                setTitle={setTitle}
+                setDate={setDate}
+              />
             </div>
           </div>
         </div>

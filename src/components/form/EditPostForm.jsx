@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { authToken } from "../../store/auth";
+import { BASE_URL } from "../../config/api";
 
 function EditPostForm({ blog }) {
   const [newTitle, setNewTitle] = useState(blog?.title);
@@ -9,7 +10,7 @@ function EditPostForm({ blog }) {
   async function editBlog() {
     try {
       let result = await axios.put(
-        "http://127.0.0.1:8000/api/editBlog",
+        `${BASE_URL}/api/editBlog`,
         {
           id: blog?.id,
           title: newTitle,

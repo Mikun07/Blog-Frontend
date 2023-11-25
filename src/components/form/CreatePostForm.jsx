@@ -1,47 +1,51 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { authToken } from "../../store/auth";
+import { BASE_URL } from "../../config/api";
+import { useNavigate } from "react-router-dom";
 
-function CreatePostForm() {
-  const [title, setTitle] = useState(null);
-  const [content, setContent] = useState(null);
-  const [date, setDate] = useState(null);
+function CreatePostForm({addBlog, title, setTitle, content, setContent, date, setDate}) {
+  const navigate = useNavigate()
+  // const [title, setTitle] = useState(null);
+  // const [content, setContent] = useState(null);
+  // const [date, setDate] = useState(null);
 
-  async function addBlog() {
-    try {
-      let result = await axios.post(
-        "http://127.0.0.1:8000/api/addBlog",
-        {
-          title,
-          content,
-          date,
-        },
-        {
-          headers: {
-            Authorization: authToken,
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
+  // async function addBlog() {
+  //   try {
+  //     let result = await axios.post(
+  //       `${BASE_URL}/api/addBlog`,
+  //       {
+  //         title,
+  //         content,
+  //         date,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: authToken,
+  //           "Content-Type": "application/json",
+  //           Accept: "application/json",
+  //         },
+  //       }
+  //     );
 
-      if (result.data?.success) {
-        // const blogList = result.data?.data;
-        // setUserBlogs(blogList);
-        alert("Successfully created blog")
-      } else {
-        alert('Unable to create blog')
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  }
+  //     if (result.data?.success) {
+  //       // const blogList = result.data?.data;
+  //       // setUserBlogs(blogList);
+  //       alert("Successfully created blog")
+  //       navigate('/profile/managepost')
+  //     } else {
+  //       alert('Unable to create blog')
+  //     }
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // }
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          addBlog();
+          addBlog({title, content, date});
         }}
         className="flex flex-col gap-y-10"
       >

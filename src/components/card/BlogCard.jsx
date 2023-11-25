@@ -9,7 +9,7 @@ function BlogCard(props) {
   async function deleteBlog() {
     try {
       let result = await axios.post(
-        "http://127.0.0.1:8000/api/deleteBlog",
+        "BASE_URL/api/deleteBlog",
         {
           id: blog?.id,
         },
