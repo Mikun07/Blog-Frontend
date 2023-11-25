@@ -40,15 +40,15 @@ function SignUpForm() {
 
   return (
     <>
-      <div className="flex flex-col gap-10 justify-center items-center h-full border-2 border-blue-800 lg:rounded-tr lg:rounded-br rounded-none lg:mx-0 mx-3 lg:px-10 px-2 lg:py-0 py-6">
+      <div className="flex flex-col gap-10 justify-center items-center h-[400px] border-2 border-blue-800 lg:rounded-tr lg:rounded-br rounded-none lg:mx-0 mx-3 lg:px-10 px-2 lg:py-0 py-6">
         <form
           onSubmit={(e) => {
             e.preventDefault();
             signUp();
           }}
-          className="flex flex-col gap-y-10"
+          className="flex flex-col gap-y-5"
         >
-          <div className=" flex items-center justify-center font-bold text-2xl text-blue-800 ">
+          <div className=" flex items-center justify-center font-bold text-lg text-blue-800 ">
             Sign Up
           </div>
 
@@ -103,7 +103,7 @@ function SignUpForm() {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="cursor-pointer text-white bg-blue-800 rounded-md px-4 py-2 capitalize text-xl font-bold hover:scale-105 duration-200"
+              className="cursor-pointer text-white bg-blue-800 rounded-md px-4 py-2 capitalize text-lg font-bold hover:scale-105 duration-200"
             >
               Sign Up
             </button>
@@ -115,7 +115,7 @@ function SignUpForm() {
             I already have an account{" "}
             <span
               onClick={() => navigate("/login")}
-              className="text-blue-800 cursor-pointer capitalize lg:text-xl font-bold hover:scale-105 duration-200"
+              className="text-blue-800 cursor-pointer capitalize text-lg font-bold hover:scale-105 duration-200"
             >
               Log in
             </span>

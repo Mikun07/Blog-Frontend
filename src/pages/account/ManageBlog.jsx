@@ -71,7 +71,7 @@ function ManageBlog() {
             <CreateModal addBlog={addBlog} />
           </div>
 
-          <div className="flex justify-center w-full h-[90%] overflow-y-auto my-6">
+          <div className="flex justify-center w-full h-[90%] overflow-y-auto custom__scrollbar my-6">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-10 gap-6">
               {userBlogs?.map((blog, index) => {
                 return <BlogCard key={index} blog={blog} />;

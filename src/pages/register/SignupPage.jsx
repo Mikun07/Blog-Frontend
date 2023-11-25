@@ -17,7 +17,7 @@ function SignupPage() {
           <p className=" font-bold capitalize text-lg">Binary blog</p>
         </Link>
 
-        <div className="lg:w-[1000px] lg:h-[500px] rounded flex md:items-center">
+        <div className="rounded flex items-center">
           <LeftView />
           <SignUpForm />
         </div>

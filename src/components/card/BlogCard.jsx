@@ -38,12 +38,12 @@ function BlogCard(props) {
   };
   return (
     <>
-      <div className="lg:w-[300px] w-full flex flex-col rounded-lg shadow-lg">
-        <div className="bg-blue-800 w-[300px] h-[200px] flex items-center justify-center rounded-tr-lg rounded-tl-lg">
-          <img src={LOGO} alt="" className="w-[300px] h-[200px]" />
+      <div className="lg:w-[290px] w-full flex flex-col rounded-lg shadow-lg">
+        <div className="bg-blue-800 w-[290px] h-[200px] flex items-center justify-center rounded-tr-lg rounded-tl-lg">
+          <img src={LOGO} alt="" className="w-[290px] h-[200px]" />
         </div>
 
-        <div className="w-[300px] px-2 gap-2 flex flex-col">
+        <div className="w-[290px] px-2 gap-2 flex flex-col">
           <div className="flex flex-col gap-1">
             <h2 className="font-semibold capitalize truncate">{blog?.title}</h2>
             <p className="font-bold text-blue-800">{blog?.author}</p>
@@ -55,7 +55,7 @@ function BlogCard(props) {
             </p>
           </div>
 
-          <div className="w-[280px] mt-1 mb-3 flex items-center justify-between">
+          <div className="w-full mt-1 mb-3 flex items-center justify-between">
             <button
               onClick={toggleModal}
               className="font-bold px-2 py-3 text-blue-800 bg-transparent border-2 border-blue-800 rounded-lg"

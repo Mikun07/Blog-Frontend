@@ -29,3 +29,29 @@ h3 {
 a {
   text-decoration: none;
 }
+
+.custom__scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+.custom__scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.custom__scrollbar::-webkit-scrollbar-thumb {
+  background: #515151;
+  border-radius: 24px;
+}
+
+/* Handle on hover */
+.custom__scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2f2f2f;
+}
+
+.line-clamp-4 {
+  line-clamp: none;
+  transition: line-clamp 0.3s ease;
+}
